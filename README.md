@@ -173,12 +173,10 @@ DeviceNetworkEvents
 
 ## Summary
 
-The user "employee" on the "threat-hunt-lab" device initiated and completed the installation of the TOR browser. They proceeded to launch the browser, establish connections within the TOR network, and created various files related to TOR on their desktop, including a file named `tor-shopping-list.txt`. This sequence of activities indicates that the user actively installed, configured, and used the TOR browser, likely for anonymous browsing purposes, with possible documentation in the form of the "shopping list" file.
-
+On July 20, 2025, the user cydreyes installed and actively used Tor Browser (version 14.5.4) on the device cyd. At 5:21 PM, they executed the Tor Browser portable installer from their Downloads folder in silent mode, allowing the program to install without prompts and deploy to the Desktop. Between 5:22 PM and 5:24 PM, the browser (firefox.exe) and its Tor network client (tor.exe) launched multiple times, generating session and profile data such as storage.sqlite, storage-sync-v2.sqlite, webappsstore.sqlite, and formhistory.sqlite, confirming active browsing activity rather than idle installation. During this time, Tor Browser established outbound connections to multiple external IP addresses over ports 443, 9001, and 80, along with a SOCKS proxy connection to 127.0.0.1:9150, validating that traffic was routed through the Tor network. At 5:32 PM, a document titled tor-shopping-list.txt was created in the user’s Documents folder, demonstrating deliberate engagement with the browser session. These events collectively confirm that cydreyes intentionally installed, configured, and used Tor Browser for anonymized browsing and content creation on the device.
 ---
 
 ## Response Taken
-
-TOR usage was confirmed on the endpoint `threat-hunt-lab` by the user `employee`. The device was isolated, and the user's direct manager was notified.
+TOR usage was confirmed on endpoint cyd by the user cydreyes. The device was isolated and the user's direct manager was notified.
 
 ---
