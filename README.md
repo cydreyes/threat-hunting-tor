@@ -103,50 +103,71 @@ DeviceNetworkEvents
 
 ## Chronological Event Timeline 
 
-### 1. File Download - TOR Installer
+### 1. Process Execution - TOR Browser Installer
 
-- **Timestamp:** `2024-11-08T22:14:48.6065231Z`
-- **Event:** The user "employee" downloaded a file named `tor-browser-windows-x86_64-portable-14.0.1.exe` to the Downloads folder.
-- **Action:** File download detected.
-- **File Path:** `C:\Users\employee\Downloads\tor-browser-windows-x86_64-portable-14.0.1.exe`
-
-### 2. Process Execution - TOR Browser Installation
-
-- **Timestamp:** `2024-11-08T22:16:47.4484567Z`
-- **Event:** The user "employee" executed the file `tor-browser-windows-x86_64-portable-14.0.1.exe` in silent mode, initiating a background installation of the TOR Browser.
+- **Timestamp:** `2025-07-20T17:21:38Z`
+- **Event:** The user "cydreyes" executed `tor-browser-windows-x86_64-portable-14.5.4.exe` from the Downloads folder in silent mode, initiating the installation of Tor Browser (v14.5.4).
 - **Action:** Process creation detected.
-- **Command:** `tor-browser-windows-x86_64-portable-14.0.1.exe /S`
-- **File Path:** `C:\Users\employee\Downloads\tor-browser-windows-x86_64-portable-14.0.1.exe`
+- **Command:** `tor-browser-windows-x86_64-portable-14.5.4.exe /S`
+- **File Path:** `C:\Users\cydreyes\Downloads\tor-browser-windows-x86_64-portable-14.5.4.exe`
+- **SHA256:** `5035adc961d7ebae32a175061d102686c00728c750824b3099601259cead8866`
+- **Initiating Process:** `cmd.exe`
 
-### 3. Process Execution - TOR Browser Launch
+---
 
-- **Timestamp:** `2024-11-08T22:17:21.6357935Z`
-- **Event:** User "employee" opened the TOR browser. Subsequent processes associated with TOR browser, such as `firefox.exe` and `tor.exe`, were also created, indicating that the browser launched successfully.
-- **Action:** Process creation of TOR browser-related executables detected.
-- **File Path:** `C:\Users\employee\Desktop\Tor Browser\Browser\TorBrowser\Tor\tor.exe`
+### 2. Process Execution - TOR Browser Launch and Components
 
-### 4. Network Connection - TOR Network
+- **Timestamps:** `2025-07-20T17:22:01Z – 2025-07-20T17:24:43Z`
+- **Event:** The user "cydreyes" launched the Tor Browser multiple times. Both `firefox.exe` (the Tor Browser ESR-based browser) and `tor.exe` (the Tor network process) were executed from the Desktop Tor Browser directory.
+- **Action:** Process creation of Tor Browser-related executables detected.
+- **File Paths:**  
+  - `C:\Users\cydreyes\Desktop\Tor Browser\Browser\firefox.exe`  
+  - `C:\Users\cydreyes\Desktop\Tor Browser\Browser\TorBrowser\Tor\tor.exe`
 
-- **Timestamp:** `2024-11-08T22:18:01.1246358Z`
-- **Event:** A network connection to IP `176.198.159.33` on port `9001` by user "employee" was established using `tor.exe`, confirming TOR browser network activity.
-- **Action:** Connection success.
-- **Process:** `tor.exe`
-- **File Path:** `c:\users\employee\desktop\tor browser\browser\torbrowser\tor\tor.exe`
+---
 
-### 5. Additional Network Connections - TOR Browser Activity
+### 3. File Creation - Tor Browser Session and Profile Data
 
-- **Timestamps:**
-  - `2024-11-08T22:18:08Z` - Connected to `194.164.169.85` on port `443`.
-  - `2024-11-08T22:18:16Z` - Local connection to `127.0.0.1` on port `9150`.
-- **Event:** Additional TOR network connections were established, indicating ongoing activity by user "employee" through the TOR browser.
-- **Action:** Multiple successful connections detected.
-
-### 6. File Creation - TOR Shopping List
-
-- **Timestamp:** `2024-11-08T22:27:19.7259964Z`
-- **Event:** The user "employee" created a file named `tor-shopping-list.txt` on the desktop, potentially indicating a list or notes related to their TOR browser activities.
+- **Timestamps:** `2025-07-20T17:22:14Z – 2025-07-20T17:24:43Z`
+- **Event:** Tor Browser generated multiple session and configuration files during usage, including `storage.sqlite`, `storage-sync-v2.sqlite`, `webappsstore.sqlite`, and `formhistory.sqlite`. A desktop shortcut `Tor Browser.lnk` was also created.
 - **Action:** File creation detected.
-- **File Path:** `C:\Users\employee\Desktop\tor-shopping-list.txt`
+- **File Path:** `C:\Users\cydreyes\Desktop\Tor Browser\Browser\TorBrowser\Data\Browser\profile.default\`
+- **SHA256 for Shortcut:** `a4eddf00baa09a99623e5c37a0a8963572983505418c7a394941bd8e6ed81aa4`
+
+---
+
+### 4. Network Connection - TOR Network Activity
+
+- **Timestamps:** `2025-07-20T17:23:08Z – 2025-07-20T17:23:26Z`
+- **Event:** Tor Browser established multiple outbound connections, including to external IPs and a SOCKS proxy on localhost.
+- **Action:** Successful network connections detected.
+- **Connections:**  
+  - `192.129.10.18` (port `443`)  
+  - `5.255.111.104` (port `9001`)  
+  - `87.236.195.216` (port `80`)  
+  - `101.99.94.185` (port `443`)  
+  - Local SOCKS proxy: `127.0.0.1:9150` initiated by `firefox.exe`
+
+---
+
+### 5. Additional Network Connections - Continued TOR Activity
+
+- **Timestamps:**  
+  - `2025-07-20T17:23:12Z` – Connection to `5.255.111.104` on port `9001` via `tor.exe`.  
+  - `2025-07-20T17:23:17Z` – Connection to `101.99.94.185` on port `443`.  
+  - `2025-07-20T17:23:26Z` – SOCKS proxy connection to `127.0.0.1` on port `9150` by `firefox.exe`.
+- **Event:** Additional Tor network activity was recorded, indicating sustained use of the Tor Browser beyond the initial launch period.
+- **Action:** Multiple network connections confirmed.
+- **Processes:** `firefox.exe`, `tor.exe`
+
+---
+
+### 6. File Creation - User Document
+
+- **Timestamp:** `2025-07-20T17:32:21Z`
+- **Event:** The user "cydreyes" created a document titled `tor-shopping-list.txt` in the Documents folder, with a shortcut added to Recent Files.
+- **Action:** File creation detected.
+- **File Path:** `C:\Users\cydreyes\Documents\tor-shopping-list.txt`
 
 ---
 
